@@ -1,0 +1,17 @@
+# Renders are output: rebuilt by each project's render script, and the ones
+# worth keeping go to the blog (photos in git, videos on engram).
+renders/
+
+# Blender scenes are rebuilt by render.py; .blend1 is Blender's backup copy
+*.blend
+*.blend1
+
+# Videos are too big for git (pabloblog/docs/adr/0001-videos-on-engram.md)
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.webm
+*.m4v
+
+.DS_Store

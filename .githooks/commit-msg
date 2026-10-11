@@ -1,0 +1,13 @@
+#!/bin/sh
+# Reject AI / co-author attribution and the wrong commit email.
+
+if grep -qiE '^co-authored-by:|generated with \[?claude|claude-session:' "$1"; then
+  echo "commit-msg: attribution lines are not allowed in this repo (see CLAUDE.md)." >&2
+  exit 1
+fi
+
+email=$(git config user.email)
+if [ "$email" != "pabluchenkooo@gmail.com" ]; then
+  echo "commit-msg: commits must use pabluchenkooo@gmail.com (current: $email)." >&2
+  exit 1
+fi
